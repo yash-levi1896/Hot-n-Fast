@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            width: 80%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="submit"], input[type="checkbox"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+            
+            
+        }
+        input[type="checkbox"] {
+        margin-right: 5px; /* Adjust spacing between checkbox and dish name */
+        vertical-align: middle; /* Align the checkbox vertically */
+    }
+    </style>
+</head>
+<body>
+    <h1>Place Order</h1>
+    <form method="post" action="{% url 'takeorder' %}">
+        {% csrf_token %}
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" name="customer_name" required><br>
+        <label for="selected_dishes">Selected Dishes:</label>
+        <ul>
+            {% for dish in dishes %}
+                <li>
+                    <label>
+                        <input type="checkbox" name="selected_dishes" value="{{ dish.id }}">
+                        {{ dish.name }} - ${{ dish.price }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Place Order">
+    </form>
+</body>
+</html>

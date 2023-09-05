@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updateOrder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 80%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="submit"], select {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: url('arrow-down.png') no-repeat right center;
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Update Order Status</h1>
+        <form action="{% url 'update_status' order.id %}" method="post">
+            {%csrf_token%}
+            <label for="name">OrderID:</label>
+            <input type="text" name="OrderID" value="{{ order.id }}" required><br>
+            <select name="status">
+                <option value="received" {% if dish.status == 'received' %}selected{% endif %}>received</option>
+                <option value="preparing" {% if dish.status == 'preparing' %}selected{% endif %}>preparing</option>
+                <option value="ready for pickup" {% if dish.status == 'ready for pickup' %}selected{% endif %}>ready for pickup</option>
+                <option value="delivered" {% if dish.status == 'delivered' %}selected{% endif %}>delivered</option>
+            </select><br>
+            <input type="submit" value="Update Status">
+        </form>
+    </div>
+</body>
+</html>

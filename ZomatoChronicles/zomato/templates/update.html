@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Update Dish</h1>
+    <form method="post" action="{% url 'update' dish.id %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ dish.name }}" required><br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" step="0.01" value="{{ dish.price }}" required><br>
+        <label for="availability">Availability:</label>
+        <select name="availability">
+            <option value="yes" {% if dish.Availability == 'yes' %}selected{% endif %}>Yes</option>
+            <option value="no" {% if dish.Availability == 'no' %}selected{% endif %}>No</option>
+        </select><br>
+        <input type="submit" value="Update Dish">
+    </form>
+    </div>
+</body>
+</html>

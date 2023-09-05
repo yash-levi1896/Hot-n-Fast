@@ -1,0 +1,93 @@
+{
+    "menu": [
+        {
+            "ID": 1,
+            "Name": "Poha",
+            "Price": 30,
+            "Availability": "yes"
+        },
+        {
+            "ID": 2,
+            "Name": "Dohkla",
+            "Price": 40,
+            "Availability": "yes"
+        },
+        {
+            "ID": 3,
+            "Name": "Dosa",
+            "Price": 100,
+            "Availability": "no"
+        },
+        {
+            "ID": 4,
+            "Name": "Pizza",
+            "Price": 249,
+            "Availability": "yes"
+        },
+        {
+            "ID": 5,
+            "Name": "Fries",
+            "Price": 80,
+            "Availability": "yes"
+        },
+        {
+            "ID": 6,
+            "Name": "Samosa",
+            "Price": 20,
+            "Availability": "no"
+        },
+        {
+            "ID": 7,
+            "Name": "Kachori",
+            "Price": 35,
+            "Availability": "yes"
+        }
+    ],
+    "order": [
+        {
+            "OrderID": 1,
+            "CustomerName": "ram",
+            "Dishes": [
+                {
+                    "ID": 1,
+                    "Name": "Dosa",
+                    "Price": 100,
+                    "Availability": "yes"
+                }
+            ],
+            "Status": "ready for pickup"
+        },
+        {
+            "OrderID": 2,
+            "CustomerName": "shyam",
+            "Dishes": [
+                {
+                    "ID": 1,
+                    "Name": "Dosa",
+                    "Price": 100,
+                    "Availability": "yes"
+                },
+                {
+                    "ID": 3,
+                    "Name": "samosa",
+                    "Price": 40,
+                    "Availability": "yes"
+                }
+            ],
+            "Status": "delivered"
+        },
+        {
+            "OrderID": 3,
+            "CustomerName": "chinku",
+            "Dishes": [
+                {
+                    "ID": 1,
+                    "Name": "Dosa",
+                    "Price": 100,
+                    "Availability": "yes"
+                }
+            ],
+            "Status": "ready for pickup"
+        }
+    ]
+}
