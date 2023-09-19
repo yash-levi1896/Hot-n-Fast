@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-93t9@qk1n0x*b7h!@vh0q(8!4gp^^u=+e)w+$092m55wip%^-c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['inventory-7h04.onrender.com']
 
 from dotenv import load_dotenv
 import os
